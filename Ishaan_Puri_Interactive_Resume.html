@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive resume of Ishaan Puri, focused on AI product management, enterprise AI integration, and digital transformation.">
+  <title>Ishaan Puri | Interactive Resume</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f3f6fb;
+      --bg-accent: rgba(31, 82, 156, 0.14);
+      --surface: rgba(255, 255, 255, 0.76);
+      --surface-strong: rgba(255, 255, 255, 0.92);
+      --surface-alt: rgba(232, 240, 251, 0.78);
+      --text: #112033;
+      --muted: #5d6b7c;
+      --line: rgba(24, 52, 92, 0.12);
+      --line-strong: rgba(24, 52, 92, 0.22);
+      --accent: #0f62d6;
+      --accent-strong: #0b4aa8;
+      --accent-soft: rgba(15, 98, 214, 0.12);
+      --signal: #17a98d;
+      --signal-soft: rgba(23, 169, 141, 0.14);
+      --shadow: 0 24px 70px rgba(26, 50, 94, 0.16);
+      --shadow-soft: 0 18px 35px rgba(26, 50, 94, 0.1);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --content-width: 1180px;
+      --hero-gap: clamp(1.5rem, 4vw, 3rem);
+      --section-gap: clamp(3rem, 6vw, 5rem);
+      --display-font: "Aptos Display", "Segoe UI Variable Display", "Bahnschrift", "Trebuchet MS", sans-serif;
+      --body-font: "Aptos", "Segoe UI Variable Text", "Segoe UI", "Calibri", sans-serif;
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #09111d;
+      --bg-accent: rgba(98, 149, 255, 0.16);
+      --surface: rgba(12, 20, 35, 0.8);
+      --surface-strong: rgba(15, 24, 40, 0.92);
+      --surface-alt: rgba(17, 31, 52, 0.8);
+      --text: #edf3ff;
+      --muted: #9cadc7;
+      --line: rgba(157, 181, 223, 0.12);
+      --line-strong: rgba(157, 181, 223, 0.24);
+      --accent: #75a7ff;
+      --accent-strong: #a9c7ff;
+      --accent-soft: rgba(117, 167, 255, 0.14);
+      --signal: #37d4bc;
+      --signal-soft: rgba(55, 212, 188, 0.18);
+      --shadow: 0 26px 80px rgba(0, 0, 0, 0.38);
+      --shadow-soft: 0 18px 36px rgba(0, 0, 0, 0.24);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--body-font);
+      background:
+        radial-gradient(circle at 10% 15%, var(--bg-accent), transparent 28%),
+        radial-gradient(circle at 88% 12%, rgba(24, 169, 141, 0.1), transparent 26%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.38), transparent 24%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.4), transparent 70%);
+      opacity: 0.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+    }
+
+    .shell {
+      width: min(var(--content-width), calc(100% - 2rem));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 1rem 0 0;
+      backdrop-filter: blur(16px);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.95rem 1.15rem;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--surface-strong) 90%, transparent);
+      box-shadow: var(--shadow-soft);
+      border-radius: 999px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 2.5rem;
+      height: 2.5rem;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--signal));
+      color: white;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 0.82rem;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    }
+
+    .brand-copy {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.77rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .brand-copy strong {
+      display: block;
+      font-size: 0.98rem;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .control,
+    .link-pill,
+    .chip,
+    .metric-card,
+    .timeline-card,
+    .skill-card,
+    .education-card,
+    .contact-card,
+    .signal-card {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .control,
+    .link-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .control:hover,
+    .control:focus-visible,
+    .link-pill:hover,
+    .link-pill:focus-visible,
+    .timeline-card:hover,
+    .timeline-card:focus-within,
+    .skill-card:hover,
+    .metric-card:hover,
+    .signal-card:hover,
+    .contact-card:hover,
+    .education-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--line-strong);
+    }
+
+    .icon {
+      width: 1rem;
+      height: 1rem;
+      flex: 0 0 auto;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.95fr);
+      gap: var(--hero-gap);
+      align-items: stretch;
+      padding: 2.6rem 0 1.4rem;
+    }
+
+    .hero-panel,
+    .signal-panel {
+      border-radius: var(--radius-xl);
+      padding: clamp(1.4rem, 3vw, 2rem);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.24), transparent 22%),
+        var(--surface-strong);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::after,
+    .signal-panel::after {
+      content: "";
+      position: absolute;
+      inset: auto -15% -35% auto;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(15, 98, 214, 0.16), transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.42rem 0.75rem;
+      border-radius: 999px;
+      background: var(--signal-soft);
+      color: var(--signal);
+      font-size: 0.8rem;
+      font-weight: 700;
+      width: fit-content;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-family: var(--display-font);
+      font-size: clamp(2.8rem, 8vw, 5.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      max-width: 10ch;
+    }
+
+    .hero-title {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 0.85rem;
+      border-radius: 999px;
+      color: var(--accent-strong);
+      background: color-mix(in srgb, var(--surface-alt) 88%, transparent);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .hero p {
+      margin: 0;
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 64ch;
+    }
+
+    .hero-actions,
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .link-pill {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .summary-highlight {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .signal-panel {
+      display: grid;
+      gap: 1rem;
+      align-content: start;
+      min-height: 100%;
+    }
+
+    .panel-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .panel-heading h2,
+    .section-header h2 {
+      margin: 0;
+      font-family: var(--display-font);
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      letter-spacing: -0.03em;
+    }
+
+    .panel-heading p,
+    .section-header p {
+      margin: 0.35rem 0 0;
+      color: var(--muted);
+      max-width: 40ch;
+    }
+
+    .metrics-grid {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .metric-card {
+      border-radius: var(--radius-lg);
+      padding: 1rem 1rem 1rem 1.1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: linear-gradient(180deg, var(--accent), var(--signal));
+      opacity: 0.95;
+    }
+
+    .metric-label {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+
+    .metric-value {
+      margin: 0.35rem 0 0;
+      font-family: var(--display-font);
+      font-size: clamp(1.65rem, 4vw, 2.4rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .metric-copy {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .summary-highlight .signal-card {
+      border-radius: var(--radius-md);
+      padding: 0.9rem 0.95rem;
+    }
+
+    .signal-card strong {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 1rem;
+    }
+
+    section {
+      padding: var(--section-gap) 0 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: flex-end;
+      margin-bottom: 1.6rem;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.77rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-layout {
+      display: grid;
+      grid-template-columns: minmax(240px, 0.55fr) minmax(0, 1.45fr);
+      gap: 1.4rem;
+      align-items: start;
+    }
+
+    .timeline-nav {
+      position: sticky;
+      top: 6.2rem;
+      border-radius: var(--radius-xl);
+      padding: 1rem;
+      background: color-mix(in srgb, var(--surface-strong) 94%, transparent);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .timeline-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .timeline-nav a {
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+      padding: 0.8rem 0.85rem;
+      border-radius: 16px;
+      color: var(--muted);
+      border: 1px solid transparent;
+      transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    .timeline-nav a:hover,
+    .timeline-nav a:focus-visible,
+    .timeline-nav a.is-active {
+      background: var(--accent-soft);
+      border-color: color-mix(in srgb, var(--accent) 28%, transparent);
+      color: var(--text);
+      transform: translateX(4px);
+    }
+
+    .nav-mark {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(15, 98, 214, 0.18), rgba(23, 169, 141, 0.2));
+      border: 1px solid var(--line);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .timeline-stack {
+      display: grid;
+      gap: 1rem;
+      position: relative;
+      padding-left: 1.25rem;
+    }
+
+    .timeline-stack::before {
+      content: "";
+      position: absolute;
+      left: 0.15rem;
+      top: 0.5rem;
+      bottom: 0.5rem;
+      width: 2px;
+      background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 65%, transparent), color-mix(in srgb, var(--signal) 55%, transparent));
+      opacity: 0.75;
+    }
+
+    .timeline-card {
+      position: relative;
+      border-radius: var(--radius-xl);
+      padding: 1.2rem 1.2rem 1.15rem 1.3rem;
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .timeline-card::before {
+      content: "";
+      position: absolute;
+      left: -1.45rem;
+      top: 1.55rem;
+      width: 0.95rem;
+      height: 0.95rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--signal));
+      box-shadow: 0 0 0 6px color-mix(in srgb, var(--surface-strong) 92%, transparent);
+    }
+
+    .timeline-card.is-active {
+      border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+      box-shadow: var(--shadow);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 0.8rem;
+    }
+
+    .role-meta {
+      min-width: 0;
+    }
+
+    .role-meta h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      line-height: 1.2;
+    }
+
+    .role-meta p {
+      margin: 0.28rem 0 0;
+      color: var(--muted);
+    }
+
+    .date-chip {
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      background: var(--surface-alt);
+      color: var(--muted);
+      white-space: nowrap;
+      font-size: 0.86rem;
+      font-weight: 700;
+      border: 1px solid var(--line);
+    }
+
+    .tag-row,
+    .bullet-list,
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.68rem;
+      background: color-mix(in srgb, var(--accent-soft) 84%, transparent);
+      color: var(--accent-strong);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .company-mark {
+      display: inline-grid;
+      place-items: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.9rem;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(15, 98, 214, 0.16), rgba(23, 169, 141, 0.12));
+    }
+
+    .company-mark.insight {
+      background: linear-gradient(135deg, rgba(123, 92, 255, 0.16), rgba(15, 98, 214, 0.16));
+    }
+
+    .bullet-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .bullet-list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.8rem;
+      align-items: start;
+      padding: 0.85rem 0.9rem;
+      border-radius: var(--radius-md);
+      background: color-mix(in srgb, var(--surface-alt) 78%, transparent);
+      border: 1px solid rgba(0, 0, 0, 0);
+      transition: border-color 180ms ease, transform 180ms ease, background 180ms ease;
+    }
+
+    .bullet-list li:hover {
+      border-color: var(--line-strong);
+      transform: translateX(4px);
+    }
+
+    .bullet-icon {
+      width: 2.2rem;
+      height: 2.2rem;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 16%, transparent), color-mix(in srgb, var(--signal) 18%, transparent));
+      color: var(--accent-strong);
+      border: 1px solid var(--line);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+
+    .bullet-copy strong {
+      color: var(--text);
+    }
+
+    details.role-details {
+      margin-top: 0.9rem;
+      border-top: 1px solid var(--line);
+      padding-top: 0.85rem;
+    }
+
+    details.role-details summary {
+      cursor: pointer;
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      color: var(--accent-strong);
+    }
+
+    details.role-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.9rem;
+    }
+
+    .details-grid .signal-card {
+      padding: 0.85rem 0.9rem;
+      border-radius: var(--radius-md);
+    }
+
+    .details-grid p {
+      margin: 0.35rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .skills-grid,
+    .bottom-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .skills-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .skill-card,
+    .education-card,
+    .contact-card {
+      border-radius: var(--radius-xl);
+      padding: 1.15rem;
+    }
+
+    .skill-card h3,
+    .education-card h3,
+    .contact-card h3 {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .skill-card p,
+    .education-card p,
+    .contact-card p,
+    .contact-card ul {
+      margin: 0.45rem 0 0;
+      color: var(--muted);
+    }
+
+    .skill-tags {
+      margin-top: 0.9rem;
+    }
+
+    .skill-tags span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 0.7rem;
+      background: color-mix(in srgb, var(--surface-alt) 84%, transparent);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .bottom-grid {
+      grid-template-columns: 1fr 1fr;
+      padding-bottom: 3rem;
+    }
+
+    .education-list,
+    .contact-list {
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+
+    .education-row,
+    .contact-row-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: flex-start;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .education-row:first-child,
+    .contact-row-item:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .education-row strong,
+    .contact-row-item strong {
+      display: block;
+    }
+
+    .footer-note {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 500ms ease, transform 500ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 80ms; }
+    .delay-2 { transition-delay: 160ms; }
+    .delay-3 { transition-delay: 240ms; }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 1080px) {
+      .hero,
+      .experience-layout,
+      .skills-grid,
+      .bottom-grid,
+      .details-grid,
+      .summary-highlight {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-nav {
+        position: relative;
+        top: 0;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .shell {
+        width: min(var(--content-width), calc(100% - 1rem));
+      }
+
+      .topbar-inner,
+      .card-top,
+      .section-header,
+      .education-row,
+      .contact-row-item,
+      .panel-heading {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .toolbar {
+        justify-content: flex-start;
+      }
+
+      .hero h1 {
+        max-width: none;
+      }
+
+      .timeline-stack {
+        padding-left: 1rem;
+      }
+
+      .timeline-card::before {
+        left: -1.2rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media print {
+      :root,
+      html[data-theme="dark"] {
+        color-scheme: light;
+        --bg: white;
+        --surface: white;
+        --surface-strong: white;
+        --surface-alt: #f3f6fb;
+        --text: #111827;
+        --muted: #495668;
+        --line: rgba(17, 24, 39, 0.12);
+        --line-strong: rgba(17, 24, 39, 0.2);
+        --accent: #0f62d6;
+        --accent-strong: #12408c;
+        --signal: #148a74;
+        --shadow: none;
+        --shadow-soft: none;
+      }
+
+      body {
+        background: white;
+      }
+
+      body::before,
+      .topbar,
+      .control,
+      .topbar-inner,
+      .footer-note[data-screen-only="true"] {
+        display: none !important;
+      }
+
+      .shell {
+        width: 100%;
+      }
+
+      .hero,
+      .experience-layout,
+      .skills-grid,
+      .bottom-grid,
+      .details-grid,
+      .summary-highlight {
+        display: block;
+      }
+
+      .hero-panel,
+      .signal-panel,
+      .timeline-card,
+      .skill-card,
+      .education-card,
+      .contact-card,
+      .metric-card,
+      .signal-card,
+      .timeline-nav {
+        box-shadow: none;
+        background: white;
+        break-inside: avoid;
+      }
+
+      .hero-panel::after,
+      .signal-panel::after,
+      .timeline-stack::before {
+        display: none;
+      }
+
+      .timeline-card::before {
+        box-shadow: none;
+      }
+
+      details.role-details {
+        display: block;
+      }
+
+      details.role-details summary {
+        display: none;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+
+      section {
+        padding-top: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <svg class="sr-only" aria-hidden="true" focusable="false">
+    <symbol id="icon-spark" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M11 2h2l1.2 5.1L19 8l-4.8 1 .8 5-4-2.6L7 14l.8-5L3 8l4.8-.9L11 2Z"/>
+    </symbol>
+    <symbol id="icon-location" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Zm0-9.5A2.5 2.5 0 1 1 12 7a2.5 2.5 0 0 1 0 5.5Z"/>
+    </symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M6.6 3h3.3l1.1 4.4-1.9 1.9a15.1 15.1 0 0 0 5.6 5.6l1.9-1.9 4.4 1.1v3.3c0 .9-.7 1.6-1.6 1.6C10.1 19 5 13.9 5 6.6 5 5.7 5.7 5 6.6 5V3Z"/>
+    </symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M3 6h18v12H3V6Zm2 2v.5l7 4.6 7-4.6V8l-7 4.6L5 8Z"/>
+    </symbol>
+    <symbol id="icon-theme" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v1.5a1 1 0 0 1-2 0V4a1 1 0 0 1 1-1Zm0 14a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm8-6a1 1 0 0 1 1 1 1 1 0 0 1-1 1h-1.5a1 1 0 0 1 0-2H20ZM5.5 12a1 1 0 0 1-1 1H3a1 1 0 0 1 0-2h1.5a1 1 0 0 1 1 1Zm11.1 6.1a1 1 0 0 1 1.4 0l1.1 1a1 1 0 0 1-1.4 1.5l-1.1-1.1a1 1 0 0 1 0-1.4ZM6.9 7.3a1 1 0 0 1 1.4 0 1 1 0 0 1 0 1.4l-1 1.1A1 1 0 0 1 5.8 8.4l1.1-1.1Zm10.2 1.4a1 1 0 0 1 0-1.4l1.1-1.1a1 1 0 1 1 1.4 1.4l-1.1 1.1a1 1 0 0 1-1.4 0ZM6.2 18a1 1 0 0 1 1.4 0 1 1 0 0 1 0 1.4l-1.1 1.1A1 1 0 1 1 5.1 19L6.2 18Z"/>
+    </symbol>
+    <symbol id="icon-print" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M7 3h10v4H7V3Zm-1 6h12a3 3 0 0 1 3 3v4h-3v5H6v-5H3v-4a3 3 0 0 1 3-3Zm2 10h8v-6H8v6Zm9-6h1a1 1 0 1 0 0-2h-1v2Z"/>
+    </symbol>
+    <symbol id="icon-ai" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M8 4h8l4 4v8l-4 4H8l-4-4V8l4-4Zm1.8 5.2-1.7 5.6h1.7l.4-1.4h3.6l.4 1.4H16l-1.8-5.6h-1.8l-1.8 5.6m2.2-1.4 1 3h-2l1-3Z"/>
+    </symbol>
+    <symbol id="icon-product" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M4 5h16v4H4V5Zm0 6h7v8H4v-8Zm9 0h7v3h-7v-3Zm0 5h7v3h-7v-3Z"/>
+    </symbol>
+    <symbol id="icon-cloud" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M9 18h8a4 4 0 0 0 .7-7.9A5.5 5.5 0 0 0 7.3 9.2 3.8 3.8 0 0 0 9 18Z"/>
+    </symbol>
+    <symbol id="icon-savings" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 3c3.9 0 7 2.7 7 6.1 0 1.2-.4 2.3-1.2 3.3l.9 2.6-2.7-.8A8.3 8.3 0 0 1 12 15c-3.9 0-7-2.7-7-6s3.1-6 7-6Zm-1 3v1.2c-1.4.3-2.2 1.2-2.2 2.4 0 1.4 1.1 2 2.7 2.4 1 .3 1.5.5 1.5 1s-.4.8-1.2.8c-.9 0-1.8-.4-2.5-.9l-.8 1.6c.7.5 1.6.8 2.5.9V18h1.8v-1.3c1.4-.3 2.3-1.2 2.3-2.5 0-1.5-1.1-2.1-2.8-2.6-.9-.2-1.4-.4-1.4-.8s.4-.7 1-.7c.8 0 1.5.3 2.2.7l.8-1.6c-.6-.4-1.4-.7-2.2-.8V6H11Z"/>
+    </symbol>
+    <symbol id="icon-architecture" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M4 7h16v2H4V7Zm2 4h3v7H6v-7Zm5 0h3v7h-3v-7Zm5 0h3v7h-3v-7ZM3 20h18v2H3v-2Zm8-17h2v3h-2V3Z"/>
+    </symbol>
+    <symbol id="icon-research" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M10.5 4a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13Zm0 2a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Zm6.7 10.3L21 20l-1.4 1.4-3.8-3.8 1.4-1.3Z"/>
+    </symbol>
+    <symbol id="icon-pipeline" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M4 5h5v4H4V5Zm11 0h5v4h-5V5ZM9 7h6v2H9V7ZM4 15h5v4H4v-4Zm11 0h5v4h-5v-4ZM11 9h2v6h-2V9Zm-2 7h6v2H9v-2Z"/>
+    </symbol>
+    <symbol id="icon-chart" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M4 19h16v2H4v-2Zm2-2V9h3v8H6Zm5 0V5h3v12h-3Zm5 0v-6h3v6h-3Z"/>
+    </symbol>
+    <symbol id="icon-team" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 12a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-6 8a6 6 0 0 1 12 0H6Zm11.8-.2A4.8 4.8 0 0 1 22 16.5a4.5 4.5 0 0 0-3.6-4.4A4.6 4.6 0 0 1 17.8 19.8ZM2 16.5a4.8 4.8 0 0 1 4.2-4.7A4.5 4.5 0 0 0 2.5 16.2c0 1.4.6 2.7 1.5 3.6Z"/>
+    </symbol>
+    <symbol id="icon-growth" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M4 18h16v2H4v-2Zm2-3 4-4 3 3 5-6 1.5 1.3-6.4 7.7-3-3-2.6 2.6L6 15Z"/>
+    </symbol>
+    <symbol id="icon-education" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 4 2 9l10 5 8-4v5h2V9L12 4Zm-6 8v4l6 3 6-3v-4l-6 3-6-3Z"/>
+    </symbol>
+  </svg>
+
+  <header class="topbar">
+    <div class="shell">
+      <div class="topbar-inner">
+        <div class="brand">
+          <div class="brand-mark">IP</div>
+          <div class="brand-copy">
+            <strong>Ishaan Puri</strong>
+          </div>
+        </div>
+        <div class="toolbar">
+          <a class="link-pill" href="#experience"><svg class="icon"><use href="#icon-product"></use></svg> Experience</a>
+          <a class="link-pill" href="#skills"><svg class="icon"><use href="#icon-ai"></use></svg> Skills</a>
+          <button class="control" type="button" id="themeToggle" aria-label="Toggle color theme"><svg class="icon"><use href="#icon-theme"></use></svg> Theme</button>
+          <button class="control" type="button" id="printResume"><svg class="icon"><use href="#icon-print"></use></svg> Print</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-panel reveal is-visible">
+        <div class="hero-grid">
+          <span class="availability"><svg class="icon"><use href="#icon-growth"></use></svg> Open to high-impact AI product roles</span>
+          <div>
+            <p class="section-label">AI Product Management | Enterprise AI Integration | Digital Transformation</p>
+            <h1 id="hero-title">Ishaan Puri</h1>
+          </div>
+          <div class="hero-title">
+            <span class="chip"><svg class="icon"><use href="#icon-ai"></use></svg> AI Strategy</span>
+            <span class="chip"><svg class="icon"><use href="#icon-product"></use></svg> Technical Product Management</span>
+            <span class="chip"><svg class="icon"><use href="#icon-architecture"></use></svg> Enterprise Architecture</span>
+          </div>
+          <p>Digital Technology Leadership Program professional with experience across AI strategy, technical product management, enterprise architecture, and digital customer experience. Delivered approximately <strong>$1.55M</strong> in cost savings and cost avoidance, led <strong>MVP execution</strong> for AI initiatives, and advanced integration and document-ingestion capabilities that improved <strong>enterprise data readiness</strong>.</p>
+          <div class="contact-row">
+            <span class="link-pill"><svg class="icon"><use href="#icon-location"></use></svg> Bangalore</span>
+            <a class="link-pill" href="tel:+917054478454"><svg class="icon"><use href="#icon-phone"></use></svg> 7054478454</a>
+            <a class="link-pill" href="mailto:ishaan.puri21@gmail.com"><svg class="icon"><use href="#icon-mail"></use></svg> ishaan.puri21@gmail.com</a>
+          </div>
+          <div class="summary-highlight">
+            <article class="signal-card reveal delay-1">
+              <span class="eyebrow"><svg class="icon"><use href="#icon-team"></use></svg> Delivery Mode</span>
+              <strong>Cross-functional execution</strong>
+              <p>Moves strategy into delivery through alignment, kaizens, and coordinated stakeholder execution.</p>
+            </article>
+            <article class="signal-card reveal delay-2">
+              <span class="eyebrow"><svg class="icon"><use href="#icon-pipeline"></use></svg> Data Lens</span>
+              <strong>Integration and readiness</strong>
+              <p>Bridges applications, ingestion workflows, and architecture direction to enable AI adoption at scale.</p>
+            </article>
+            <article class="signal-card reveal delay-3">
+              <span class="eyebrow"><svg class="icon"><use href="#icon-growth"></use></svg> Leadership Signal</span>
+              <strong>Business-impact focused</strong>
+              <p>Links technical delivery to cost reduction, operational efficiency, and transformation outcomes.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <aside class="signal-panel reveal delay-1" aria-labelledby="impact-title">
+        <div class="panel-heading">
+          <div>
+            <span class="section-label">Featured Impact</span>
+            <h2 id="impact-title">Signals that land fast</h2>
+          </div>
+        </div>
+        <div class="metrics-grid">
+          <article class="metric-card">
+            <div class="metric-label"><svg class="icon"><use href="#icon-savings"></use></svg> Total quantified impact</div>
+            <p class="metric-value">$1.55M+</p>
+            <p class="metric-copy">Cost savings and avoidance delivered across infrastructure and engineering IT programs.</p>
+          </article>
+          <article class="metric-card">
+            <div class="metric-label"><svg class="icon"><use href="#icon-cloud"></use></svg> Migration value</div>
+            <p class="metric-value">$1.4M</p>
+            <p class="metric-copy">Enabled through data center exit planning, TSA support, and consolidation work.</p>
+          </article>
+          <article class="metric-card">
+            <div class="metric-label"><svg class="icon"><use href="#icon-chart"></use></svg> Efficiency lift</div>
+            <p class="metric-value">20% / 70%</p>
+            <p class="metric-copy">Improved monitoring efficiency and reduced manual effort through analytics and automation.</p>
+          </article>
+        </div>
+      </aside>
+    </section>
+
+    <section id="experience" class="reveal" aria-labelledby="experience-title">
+      <div class="section-header">
+        <div>
+          <span class="section-label"><svg class="icon"><use href="#icon-product"></use></svg> Career Timeline</span>
+          <h2 id="experience-title">Enterprise AI, product, and transformation work</h2>
+        </div>
+      </div>
+
+      <div class="experience-layout">
+        <nav class="timeline-nav" aria-label="Experience navigation">
+          <span class="eyebrow"><svg class="icon"><use href="#icon-spark"></use></svg> Focus Map</span>
+          <ul>
+            <li><a href="#role-wind" data-target="role-wind" class="is-active"><span class="nav-mark">GV</span><span><strong>Wind AI</strong></span></a></li>
+            <li><a href="#role-gas" data-target="role-gas"><span class="nav-mark">GV</span><span><strong>Gas Power DPD</strong></span></a></li>
+            <li><a href="#role-cto" data-target="role-cto"><span class="nav-mark">GV</span><span><strong>CTO</strong></span></a></li>
+            <li><a href="#role-electrification" data-target="role-electrification"><span class="nav-mark">GV</span><span><strong>Electrification</strong></span></a></li>
+            <li><a href="#role-insight" data-target="role-insight"><span class="nav-mark">IN</span><span><strong>Insight</strong></span></a></li>
+          </ul>
+        </nav>
+
+        <div class="timeline-stack">
+          <article id="role-wind" class="timeline-card reveal is-active" data-role-card>
+            <div class="card-top">
+              <div class="role-meta">
+                <div class="contact-row">
+                  <span class="company-mark">GV</span>
+                  <div>
+                    <h3>Commercial and Engineering AI Projects Leader, Wind</h3>
+                    <p>GE Vernova | Digital Technology Leadership Program</p>
+                  </div>
+                </div>
+              </div>
+              <span class="date-chip">Feb 2026 - Jul 2026</span>
+            </div>
+            <div class="tag-row">
+              <span class="tag"><svg class="icon"><use href="#icon-ai"></use></svg> AI priorities</span>
+              <span class="tag"><svg class="icon"><use href="#icon-product"></use></svg> MVP delivery</span>
+              <span class="tag"><svg class="icon"><use href="#icon-team"></use></svg> Stakeholder alignment</span>
+            </div>
+            <ul class="bullet-list">
+              <li>
+                <span class="bullet-icon"><svg class="icon"><use href="#icon-ai"></use></svg></span>
+                <div class="bullet-copy"><strong>Drove AI priorities</strong> across the Wind business by aligning internal teams and external stakeholders on delivery goals, execution plans, and transformation priorities.</div>
+              </li>
+              <li>
+                <span class="bullet-icon"><svg class="icon"><use href="#icon-product"></use></svg></span>
+                <div class="bullet-copy"><strong>Led product roadmap work and development of the first MVP for wind.ai</strong>, a large-scale enterprise initiative, running development kaizens and coordinating cross-functional teams to accelerate execution.</div>
+              </li>
+              <li>
+                <span class="bullet-icon"><svg class="icon"><use href="#icon-team"></use></svg></span>
+                <div class="bullet-copy"><strong>Built and delivered AI awareness and literacy programs</strong> that strengthened adoption readiness and supported enterprise AI transformation.</div>
+              </li>
+            </ul>
+          </article>
+
+          <article id="role-gas" class="timeline-card reveal delay-1" data-role-card>
+            <div class="card-top">
+              <div class="role-meta">
+                <div class="contact-row">
+                  <span class="company-mark">GV</span>
+                  <div>
+                    <h3>Technical Product Manager, Gas Power DPD</h3>
+                    <p>GE Vernova | Digital Technology Leadership Program</p>
+                  </div>
+                </div>
+              </div>
+              <span class="date-chip">Aug 2025 - Jan 2026</span>
+            </div>
+            <div class="tag-row">
+              <span class="tag"><svg class="icon"><use href="#icon-savings"></use></svg> $155K impact</span>
+              <span class="tag"><svg class="icon"><use href="#icon-pipeline"></use></svg> Integration</span>
+              <span class="tag"><svg class="icon"><use href="#icon-architecture"></use></svg> Technical debt</span>
+            </div>
+            <ul class="bullet-list">
+              <li>
+                <span class="bullet-icon"><svg class="icon"><use href="#icon-savings"></use></svg></span>
+                <div class="bullet-copy"><strong>Supported initiatives that identified approximately $155K</strong> in cost savings and cost avoidance through the Cyplus refresh and MTA replacement.</div>
+              </li>
+              <li>
+                <span class="bullet-icon"><svg class="icon"><use href="#icon-architecture"></use></svg></span>
+                <div class="bullet-copy"><strong>Reduced technical debt and simplified the application landscape</strong>, improving maintainability and enabling more efficient delivery.</div>
+              </li>
+              <li>
+                <span class="bullet-icon"><svg class="icon"><use href="#icon-pipeline"></use></svg></span>
+                <div class="bullet-copy"><strong>Participated in PI Planning and applied SAFe practices</strong> while advancing Lemur-PPO integration and vendor document-ingestion capabilities, improving interoperability and readiness for AI-enabled workflows.</div>
+              </li>
+            </ul>
+          </article>
+
+          <article id="role-cto" class="timeline-card reveal delay-2" data-role-card>
+            <div class="card-top">
+              <div class="role-meta">
+                <div class="contact-row">
+                  <span class="company-mark">GV</span>
+                  <div>
+                    <h3>Data Center Migration Architect, CTO</h3>
+                    <p>GE Vernova | Digital Technology Leadership Program</p>
+                  </div>
+                </div>
+              </div>
+              <span class="date-chip">Feb 2025 - Jul 2025</span>
+            </div>
+            <div class="tag-row">
+              <span class="tag"><svg class="icon"><use href="#icon-cloud"></use></svg> Cloud adoption</span>
+              <span class="tag"><svg class="icon"><use href="#icon-savings"></use></svg> $1.4M savings</span>
+              <span class="tag"><svg class="icon"><use href="#icon-architecture"></use></svg> Future-state design</span>
+            </div>
+            <ul class="bullet-list">
+              <li>
+                <span class="bullet-icon"><svg class="icon"><use href="#icon-savings"></use></svg></span>
+                <div class="bullet-copy"><strong>Supported the London Vodafone data center exit, TSA transition planning, and consolidation efforts</strong> that enabled approximately $1.4M in cost savings.</div>
+              </li>
+              <li>
+                <span class="bullet-icon"><svg class="icon"><use href="#icon-cloud"></use></svg></span>
+                <div class="bullet-copy"><strong>Developed future-state architecture direction</strong> for Cyber and Identity applications and DC-in-a-Box initiatives, supporting cloud adoption and operational independence.</div>
+              </li>
+            </ul>
+          </article>
+
+          <article id="role-electrification" class="timeline-card reveal delay-3" data-role-card>
+            <div class="card-top">
+              <div class="role-meta">
+                <div class="contact-row">
+                  <span class="company-mark">GV</span>
+                  <div>
+                    <h3>Services IT Project Leader, Electrification</h3>
+                    <p>GE Vernova | Digital Technology Leadership Program</p>
+                  </div>
+                </div>
+              </div>
+              <span class="date-chip">Aug 2024 - Jan 2025</span>
+            </div>
+            <div class="tag-row">
+              <span class="tag"><svg class="icon"><use href="#icon-research"></use></svg> UX research</span>
+              <span class="tag"><svg class="icon"><use href="#icon-product"></use></svg> Service digitization</span>
+              <span class="tag"><svg class="icon"><use href="#icon-growth"></use></svg> Adoption support</span>
+            </div>
+            <ul class="bullet-list">
+              <li>
+                <span class="bullet-icon"><svg class="icon"><use href="#icon-research"></use></svg></span>
+                <div class="bullet-copy"><strong>Improved the Service360 user experience</strong> through customer research, usability testing, wireframing, and prototyping to strengthen adoption and retention.</div>
+              </li>
+              <li>
+                <span class="bullet-icon"><svg class="icon"><use href="#icon-product"></use></svg></span>
+                <div class="bullet-copy"><strong>Led SMax Go and field-service digitization use cases</strong> that advanced service modernization and operational efficiency.</div>
+              </li>
+            </ul>
+          </article>
+
+          <article id="role-insight" class="timeline-card reveal" data-role-card>
+            <div class="card-top">
+              <div class="role-meta">
+                <div class="contact-row">
+                  <span class="company-mark insight">IN</span>
+                  <div>
+                    <h3>Insight</h3>
+                    <p>Automation and analytics delivery</p>
+                  </div>
+                </div>
+              </div>
+              <span class="date-chip">Mar 2021 - Apr 2022</span>
+            </div>
+            <div class="tag-row">
+              <span class="tag"><svg class="icon"><use href="#icon-pipeline"></use></svg> Data pipelines</span>
+              <span class="tag"><svg class="icon"><use href="#icon-chart"></use></svg> Dashboards</span>
+              <span class="tag"><svg class="icon"><use href="#icon-growth"></use></svg> Automation</span>
+            </div>
+            <ul class="bullet-list">
+              <li>
+                <span class="bullet-icon"><svg class="icon"><use href="#icon-pipeline"></use></svg></span>
+                <div class="bullet-copy"><strong>Built automated data pipelines</strong> for integration, transformation, delivery, and metric generation to improve reporting reliability and decision-making.</div>
+              </li>
+              <li>
+                <span class="bullet-icon"><svg class="icon"><use href="#icon-chart"></use></svg></span>
+                <div class="bullet-copy"><strong>Designed dashboards that increased monitoring efficiency by 20%</strong> and implemented automation that reduced manual effort by 70%.</div>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="reveal" aria-labelledby="skills-title">
+      <div class="section-header">
+        <div>
+          <span class="section-label"><svg class="icon"><use href="#icon-ai"></use></svg> Capability System</span>
+          <h2 id="skills-title">Skills shaped around delivery, not keyword stuffing</h2>
+        </div>
+      </div>
+
+      <div class="skills-grid">
+        <article class="skill-card reveal delay-1">
+          <span class="eyebrow"><svg class="icon"><use href="#icon-product"></use></svg> Product and Program</span>
+          <h3>Execution with structure</h3>
+          <div class="skill-tags">
+            <span><svg class="icon"><use href="#icon-product"></use></svg> Technical Product Management</span>
+            <span><svg class="icon"><use href="#icon-team"></use></svg> Stakeholder Management</span>
+            <span><svg class="icon"><use href="#icon-growth"></use></svg> Program Planning</span>
+            <span><svg class="icon"><use href="#icon-team"></use></svg> Cross-Functional Leadership</span>
+          </div>
+        </article>
+
+        <article class="skill-card reveal delay-2">
+          <span class="eyebrow"><svg class="icon"><use href="#icon-ai"></use></svg> AI and Data</span>
+          <h3>Readiness for scaled AI adoption</h3>
+          <div class="skill-tags">
+            <span><svg class="icon"><use href="#icon-ai"></use></svg> AI Strategy and Adoption</span>
+            <span><svg class="icon"><use href="#icon-pipeline"></use></svg> Data Readiness</span>
+            <span><svg class="icon"><use href="#icon-pipeline"></use></svg> Enterprise AI Integration</span>
+            <span><svg class="icon"><use href="#icon-architecture"></use></svg> AI Governance</span>
+          </div>
+        </article>
+
+        <article class="skill-card reveal delay-3">
+          <span class="eyebrow"><svg class="icon"><use href="#icon-architecture"></use></svg> Delivery and Transformation</span>
+          <h3>Modernization with measurable business value</h3>
+          <div class="skill-tags">
+            <span><svg class="icon"><use href="#icon-architecture"></use></svg> Enterprise Architecture</span>
+            <span><svg class="icon"><use href="#icon-cloud"></use></svg> Cloud Adoption</span>
+            <span><svg class="icon"><use href="#icon-growth"></use></svg> Process Improvement</span>
+            <span><svg class="icon"><use href="#icon-chart"></use></svg> Analytics and Automation</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="reveal" aria-labelledby="foundation-title">
+      <div class="section-header">
+        <div>
+          <span class="section-label"><svg class="icon"><use href="#icon-education"></use></svg> Foundation</span>
+          <h2 id="foundation-title">Education and contact</h2>
+        </div>
+      </div>
+
+      <div class="bottom-grid">
+        <article class="education-card reveal delay-1">
+          <span class="eyebrow"><svg class="icon"><use href="#icon-education"></use></svg> Education</span>
+          <h3>Academic background</h3>
+          <div class="education-list">
+            <div class="education-row">
+              <div>
+                <strong>MBA</strong>
+                <span>NMIMS, Mumbai</span>
+              </div>
+              <span class="date-chip">2024</span>
+            </div>
+            <div class="education-row">
+              <div>
+                <strong>B.Tech. in Computer Science and Engineering</strong>
+                <span>Amity University, Noida</span>
+              </div>
+              <span class="date-chip">2021</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="contact-card reveal delay-2">
+          <span class="eyebrow"><svg class="icon"><use href="#icon-team"></use></svg> Contact</span>
+          <h3>Direct channels</h3>
+          <div class="contact-list">
+            <div class="contact-row-item">
+              <div>
+                <strong>Location</strong>
+                <span>Bangalore</span>
+              </div>
+              <svg class="icon" aria-hidden="true"><use href="#icon-location"></use></svg>
+            </div>
+            <div class="contact-row-item">
+              <div>
+                <strong>Phone</strong>
+                <span><a href="tel:+917054478454">7054478454</a></span>
+              </div>
+              <svg class="icon" aria-hidden="true"><use href="#icon-phone"></use></svg>
+            </div>
+            <div class="contact-row-item">
+              <div>
+                <strong>Email</strong>
+                <span><a href="mailto:ishaan.puri21@gmail.com">ishaan.puri21@gmail.com</a></span>
+              </div>
+              <svg class="icon" aria-hidden="true"><use href="#icon-mail"></use></svg>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var themeToggle = document.getElementById("themeToggle");
+      var printResume = document.getElementById("printResume");
+      var storedTheme = localStorage.getItem("resume-theme");
+      var media = window.matchMedia("(prefers-color-scheme: dark)");
+      var revealItems = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+      var roleCards = Array.prototype.slice.call(document.querySelectorAll("[data-role-card]"));
+      var navLinks = Array.prototype.slice.call(document.querySelectorAll(".timeline-nav a"));
+
+      function applyTheme(theme) {
+        root.setAttribute("data-theme", theme);
+        localStorage.setItem("resume-theme", theme);
+      }
+
+      applyTheme(storedTheme || (media.matches ? "dark" : "light"));
+
+      themeToggle.addEventListener("click", function () {
+        applyTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark");
+      });
+
+      printResume.addEventListener("click", function () {
+        window.print();
+      });
+
+      if (!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) && "IntersectionObserver" in window) {
+        var revealObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.18, rootMargin: "0px 0px -60px 0px" });
+
+        revealItems.forEach(function (item) {
+          if (!item.classList.contains("is-visible")) {
+            revealObserver.observe(item);
+          }
+        });
+      } else {
+        revealItems.forEach(function (item) {
+          item.classList.add("is-visible");
+        });
+      }
+
+      function setActiveRole(id) {
+        roleCards.forEach(function (card) {
+          card.classList.toggle("is-active", card.id === id);
+        });
+
+        navLinks.forEach(function (link) {
+          link.classList.toggle("is-active", link.getAttribute("data-target") === id);
+        });
+      }
+
+      function updateActiveRole() {
+        var focusLine = window.innerHeight * 0.22;
+        var activeId = roleCards[0].id;
+
+        roleCards.forEach(function (card) {
+          if (card.getBoundingClientRect().top <= focusLine) {
+            activeId = card.id;
+          }
+        });
+
+        setActiveRole(activeId);
+      }
+
+      navLinks.forEach(function (link) {
+        link.addEventListener("click", function () {
+          setActiveRole(link.getAttribute("data-target"));
+        });
+      });
+
+      var ticking = false;
+
+      function requestActiveUpdate() {
+        if (ticking) {
+          return;
+        }
+
+        ticking = true;
+        window.requestAnimationFrame(function () {
+          updateActiveRole();
+          ticking = false;
+        });
+      }
+
+      window.addEventListener("scroll", requestActiveUpdate, { passive: true });
+      window.addEventListener("resize", requestActiveUpdate);
+      window.addEventListener("hashchange", function () {
+        var id = window.location.hash.replace("#", "");
+
+        if (id) {
+          setActiveRole(id);
+        }
+      });
+
+      setActiveRole(window.location.hash ? window.location.hash.replace("#", "") : roleCards[0].id);
+      requestActiveUpdate();
+    }());
+  </script>
+</body>
+</html>
